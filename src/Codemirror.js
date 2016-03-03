@@ -1,5 +1,6 @@
 var CM = require('codemirror');
 var React = require('react');
+var ReactDOM = require('react-dom');
 
 var CodeMirror = React.createClass({
 
@@ -18,7 +19,7 @@ var CodeMirror = React.createClass({
 	},
 
 	componentDidMount () {
-		var textareaNode = React.findDOMNode(this.refs.textarea);
+		var textareaNode = ReactDOM.findDOMNode(this.refs.textarea);
 		this.codeMirror = CM.fromTextArea(textareaNode, this.props.options);
 		this.codeMirror.on('change', this.codemirrorValueChanged);
 		this.codeMirror.on('focus', this.focusChanged.bind(this, true));
